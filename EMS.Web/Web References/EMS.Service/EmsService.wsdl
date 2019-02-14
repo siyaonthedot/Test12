@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EmsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60479/EmsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60479/EmsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60479/EmsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EMS.service.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmsService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_CreateRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRate" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_CreateRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_CreateEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_CreateEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_CreateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRole" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_CreateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_GetAllRates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRates" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_GetAllRates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_GetAllEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_GetAllEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_GetAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="IEmsService_GetAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmsService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/DoWork" message="tns:IEmsService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/DoWorkResponse" message="tns:IEmsService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/CreateRate" message="tns:IEmsService_CreateRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/CreateRateResponse" message="tns:IEmsService_CreateRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/CreateEmployee" message="tns:IEmsService_CreateEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/CreateEmployeeResponse" message="tns:IEmsService_CreateEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/CreateRole" message="tns:IEmsService_CreateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/CreateRoleResponse" message="tns:IEmsService_CreateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/GetAllRates" message="tns:IEmsService_GetAllRates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/GetAllRatesResponse" message="tns:IEmsService_GetAllRates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/GetAllEmployees" message="tns:IEmsService_GetAllEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/GetAllEmployeesResponse" message="tns:IEmsService_GetAllEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmsService/GetAllRoles" message="tns:IEmsService_GetAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmsService/GetAllRolesResponse" message="tns:IEmsService_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmsService" type="tns:IEmsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRate">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/CreateRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmployee">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/CreateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/CreateRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRates">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/GetAllRates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/GetAllEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap:operation soapAction="http://tempuri.org/IEmsService/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmsService">
+    <wsdl:port name="BasicHttpBinding_IEmsService" binding="tns:BasicHttpBinding_IEmsService">
+      <soap:address location="http://localhost:60479/EmsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

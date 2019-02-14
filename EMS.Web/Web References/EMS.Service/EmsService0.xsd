@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EMS.service.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EMS.service.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RateModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="RoleModel" nillable="true" type="tns:RoleModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RateModel" nillable="true" type="tns:RateModel" />
+  <xs:complexType name="RoleModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Rate" nillable="true" type="tns:RateModel" />
+      <xs:element minOccurs="0" name="RateID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SelectedRate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleModel" nillable="true" type="tns:RoleModel" />
+  <xs:complexType name="EmployeeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOB" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateHired" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IDNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelectedRole" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeModel" nillable="true" type="tns:EmployeeModel" />
+  <xs:complexType name="ArrayOfRateModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RateModel" nillable="true" type="tns:RateModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRateModel" nillable="true" type="tns:ArrayOfRateModel" />
+  <xs:complexType name="ArrayOfEmployeeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeModel" nillable="true" type="tns:EmployeeModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployeeModel" nillable="true" type="tns:ArrayOfEmployeeModel" />
+  <xs:complexType name="ArrayOfRoleModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleModel" nillable="true" type="tns:RoleModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleModel" nillable="true" type="tns:ArrayOfRoleModel" />
+</xs:schema>

@@ -43,6 +43,12 @@ namespace EMS.Web.EMS.Service {
         
         private System.Threading.SendOrPostCallback GetAllRolesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetRateByIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetRoleByIDOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetEmployeeByIDOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,6 +107,15 @@ namespace EMS.Web.EMS.Service {
         
         /// <remarks/>
         public event GetAllRolesCompletedEventHandler GetAllRolesCompleted;
+        
+        /// <remarks/>
+        public event GetRateByIDCompletedEventHandler GetRateByIDCompleted;
+        
+        /// <remarks/>
+        public event GetRoleByIDCompletedEventHandler GetRoleByIDCompleted;
+        
+        /// <remarks/>
+        public event GetEmployeeByIDCompletedEventHandler GetEmployeeByIDCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEmsService/DoWork", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -306,6 +321,102 @@ namespace EMS.Web.EMS.Service {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEmsService/GetRateByID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public RateModel GetRateByID(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
+            object[] results = this.Invoke("GetRateByID", new object[] {
+                        id,
+                        idSpecified});
+            return ((RateModel)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRateByIDAsync(int id, bool idSpecified) {
+            this.GetRateByIDAsync(id, idSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void GetRateByIDAsync(int id, bool idSpecified, object userState) {
+            if ((this.GetRateByIDOperationCompleted == null)) {
+                this.GetRateByIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRateByIDOperationCompleted);
+            }
+            this.InvokeAsync("GetRateByID", new object[] {
+                        id,
+                        idSpecified}, this.GetRateByIDOperationCompleted, userState);
+        }
+        
+        private void OnGetRateByIDOperationCompleted(object arg) {
+            if ((this.GetRateByIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRateByIDCompleted(this, new GetRateByIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEmsService/GetRoleByID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public RoleModel GetRoleByID(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
+            object[] results = this.Invoke("GetRoleByID", new object[] {
+                        id,
+                        idSpecified});
+            return ((RoleModel)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRoleByIDAsync(int id, bool idSpecified) {
+            this.GetRoleByIDAsync(id, idSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void GetRoleByIDAsync(int id, bool idSpecified, object userState) {
+            if ((this.GetRoleByIDOperationCompleted == null)) {
+                this.GetRoleByIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRoleByIDOperationCompleted);
+            }
+            this.InvokeAsync("GetRoleByID", new object[] {
+                        id,
+                        idSpecified}, this.GetRoleByIDOperationCompleted, userState);
+        }
+        
+        private void OnGetRoleByIDOperationCompleted(object arg) {
+            if ((this.GetRoleByIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRoleByIDCompleted(this, new GetRoleByIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IEmsService/GetEmployeeByID", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public EmployeeModel GetEmployeeByID(int id, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idSpecified) {
+            object[] results = this.Invoke("GetEmployeeByID", new object[] {
+                        id,
+                        idSpecified});
+            return ((EmployeeModel)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeByIDAsync(int id, bool idSpecified) {
+            this.GetEmployeeByIDAsync(id, idSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeByIDAsync(int id, bool idSpecified, object userState) {
+            if ((this.GetEmployeeByIDOperationCompleted == null)) {
+                this.GetEmployeeByIDOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEmployeeByIDOperationCompleted);
+            }
+            this.InvokeAsync("GetEmployeeByID", new object[] {
+                        id,
+                        idSpecified}, this.GetEmployeeByIDOperationCompleted, userState);
+        }
+        
+        private void OnGetEmployeeByIDOperationCompleted(object arg) {
+            if ((this.GetEmployeeByIDCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEmployeeByIDCompleted(this, new GetEmployeeByIDCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -332,7 +443,7 @@ namespace EMS.Web.EMS.Service {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EMS.service.Models")]
     public partial class RateModel {
         
-        private System.Nullable<decimal> amountField;
+        private decimal amountField;
         
         private bool amountFieldSpecified;
         
@@ -342,11 +453,8 @@ namespace EMS.Web.EMS.Service {
         
         private bool idFieldSpecified;
         
-        private RoleModel roleModelField;
-        
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> Amount {
+        public decimal Amount {
             get {
                 return this.amountField;
             }
@@ -395,17 +503,6 @@ namespace EMS.Web.EMS.Service {
             }
             set {
                 this.idFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RoleModel RoleModel {
-            get {
-                return this.roleModelField;
-            }
-            set {
-                this.roleModelField = value;
             }
         }
     }
@@ -801,6 +898,84 @@ namespace EMS.Web.EMS.Service {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((RoleModel[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void GetRateByIDCompletedEventHandler(object sender, GetRateByIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRateByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRateByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public RateModel Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((RateModel)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void GetRoleByIDCompletedEventHandler(object sender, GetRoleByIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRoleByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRoleByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public RoleModel Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((RoleModel)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void GetEmployeeByIDCompletedEventHandler(object sender, GetEmployeeByIDCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEmployeeByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEmployeeByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public EmployeeModel Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((EmployeeModel)(this.results[0]));
             }
         }
     }

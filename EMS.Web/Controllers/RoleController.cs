@@ -14,14 +14,14 @@ namespace EMS.Web.Controllers
         public ActionResult Index()
         {
 
-            IList<Models.RoleModel> List = emsObj.GetAllRoles().Select(m => new Models.RoleModel {  Description = m.Description, ID = m.ID }).ToList();
+            IList<Models.RoleModel> List = emsObj.GetAllRoles().
+            Select(m => new Models.RoleModel {  Description = m.Description, ID = m.ID }).ToList();
             return View(List);
         }
 
         // GET: Role/Details/5
         public ActionResult Details(int id)
         {
-
             return View();
         }
 
@@ -29,7 +29,8 @@ namespace EMS.Web.Controllers
         public ActionResult Create()
         {
             Models.RoleModel model = new Models.RoleModel();
-            model.Rates =  emsObj.GetAllRates().OrderBy(x => x.Description).Select(x => new SelectListItem { Value = x.ID.ToString(), Text = x.Description });
+            model.Rates =  emsObj.GetAllRates().OrderBy(x => x.Description).
+           Select(x => new SelectListItem { Value = x.ID.ToString(), Text = x.Description });
             return View(model);
         }
 

@@ -15,7 +15,8 @@ namespace EMS.Web.Controllers
         // GET: Rate
         public ActionResult Index()
         {
-           IList<Models.RateModel> List = emsObj.GetAllRates().Select(m=> new Models.RateModel { Amount = m.Amount, Description = m.Description, ID = m.ID}).ToList();
+           IList<Models.RateModel> List = emsObj.GetAllRates().
+           Select(m=> new Models.RateModel { Amount = m.Amount, Description = m.Description, ID = m.ID}).ToList();
 
            return View(List);
         }
@@ -40,9 +41,7 @@ namespace EMS.Web.Controllers
             {
                 EMS.Service.RateModel Servicemodel = new EMS.Service.RateModel();
                 Servicemodel.Description = model.Description;
-                Servicemodel.Amount = model.Amount;
-
-                //EmsService emsObj = new EmsService();
+                Servicemodel.Amount = model.Amount ?? 0;
                 string result = emsObj.CreateRate(Servicemodel);
                 return RedirectToAction("Index");
             }

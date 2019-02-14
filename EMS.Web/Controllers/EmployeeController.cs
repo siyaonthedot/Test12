@@ -33,7 +33,8 @@ namespace EMS.Web.Controllers
         public ActionResult Create()
         {
             Models.EmployeeModel model = new Models.EmployeeModel();
-            model.Roles = emsObj.GetAllRoles().OrderBy(x => x.Description).Select(x => new SelectListItem { Value = x.ID.ToString(), Text = x.Description });
+            model.Roles = emsObj.GetAllRoles().OrderBy(x => x.Description).
+            Select(x => new SelectListItem { Value = x.ID.ToString(), Text = x.Description });
             return View(model);
         }
 
@@ -49,14 +50,6 @@ namespace EMS.Web.Controllers
                 serviceModel.IDNumber = model.IDNumber;
                 serviceModel.SelectedRole = model.SelectedRole;
                 serviceModel.DateHired = DateTime.Now;
-
-
-                //serviceModel.DateHired = model.DateHired;
-              //  serviceModel. = model.DOB;
-               // serviceModel.DOB = model.DOB;
-
-
-
                 string result = emsObj.CreateEmployee(serviceModel);
                 return RedirectToAction("Index");
             }
